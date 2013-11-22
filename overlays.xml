@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name>niitsuma-overlay</name>
+    <description>niitsuma overlay</description>
+    <homepage>https://github.com/niitsuma/niitsuma-overlay</homepage>
+    <owner>
+      <email>hirotaka.niitsuma@gmail.com</email>
+      <name>Hirotaka NIITSUMA</name>
+    </owner>
+    <source type="git">git@github.com:niitsuma/niitsuma-overlay.git</source>
+  </repo>
+</repositories>
