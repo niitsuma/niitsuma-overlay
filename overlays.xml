@@ -9,6 +9,6 @@
       <email>hirotaka.niitsuma@gmail.com</email>
       <name>Hirotaka NIITSUMA</name>
     </owner>
-    <source type="git">git@github.com:niitsuma/niitsuma-overlay.git</source>
+    <source type="git">git://github.com/niitsuma/niitsuma-overlay.git</source>
   </repo>
 </repositories>
