@@ -7,11 +7,12 @@ EAPI=5
 inherit autotools eutils multilib
 
 #MY_P="${P/_}"
+
 DESCRIPTION="Yet Another Japanese Dependency Structure Analyzer"
 HOMEPAGE="http://code.google.com/p/cabocha/"
 SRC_URI="http://cabocha.googlecode.com/files/${P}.tar.bz2"
 
-#SRC_URI="http://cabocha.googlecode.com/files/${MY_P}.tar.bz2"
+# SRC_URI="http://cabocha.googlecode.com/files/${MY_P}.tar.bz2"
 # SRC_URI="http://cabocha.googlecode.com/files/cabocha-0.66.tar.bz2"
 # mirror://sourceforge/cabocha/${MY_P}.tar.bz2
 
@@ -26,23 +27,33 @@ IUSE="unicode"
 #	>=app-text/mecab-0.993
 #	app-dicts/mecab-ipadic"
 
-DEPEND="app-text/crf++
-	app-text/mecab
-	app-dicts/mecab-ipadic"
+# DEPEND="app-text/crf++
+#	app-text/mecab
+#	app-dicts/mecab-ipadic"
+
+#DEPEND="app-text/crf++
+#	app-text/mecab"
+
 
 # S="${WORKDIR}/${MY_P}"
 
-src_configure() {
-		# not need?
-		econf
+# src_configure() {
+# 		# not need?
+# 		econf
+# 		./configure \
+#  	    	--with-charset=utf8 --enable-utf8-only \		
+# 		--host=${CHOST} \
+# 		--prefix=/usr \
+# 		--infodir=/usr/share/info \
+# 		--mandir=/usr/share/man || die
+# }
 
-		./configure \
- 	    	--with-charset=utf8 --enable-utf8-only \		
-		--host=${CHOST} \
-		--prefix=/usr \
-		--infodir=/usr/share/info \
-		--mandir=/usr/share/man || die
-}
+# src_configure() {
+# 	econf \
+# 		$(use_enable static-libs static) \
+# 		$(use_with unicode charset UTF-8)
+# }
+
 
 #src_unpack() {
 #	unpack ${A}

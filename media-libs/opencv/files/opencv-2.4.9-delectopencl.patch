@@ -1,0 +1,45 @@
+--- opencv-2.4.9.orig/cmake/OpenCVDetectOpenCL.cmake	2014-04-11 19:15:26.000000000 +0900
++++ opencv-2.4.9/cmake/OpenCVDetectOpenCL.cmake	2014-09-18 13:21:49.278921103 +0900
+@@ -11,26 +11,26 @@
+ endif(APPLE)
+ 
+ if(OPENCL_FOUND)
+-  if(NOT HAVE_OPENCL_STATIC)
+-    try_compile(__VALID_OPENCL
+-      "${OpenCV_BINARY_DIR}"
+-      "${OpenCV_SOURCE_DIR}/cmake/checks/opencl.cpp"
+-      CMAKE_FLAGS "-DINCLUDE_DIRECTORIES:STRING=${OPENCL_INCLUDE_DIR}"
+-      OUTPUT_VARIABLE TRY_OUT
+-      )
+-    if(NOT TRY_OUT MATCHES "OpenCL is valid")
+-      message(WARNING "Can't use OpenCL")
+-      return()
+-    endif()
+-  endif()
++  # if(NOT HAVE_OPENCL_STATIC)
++  #   try_compile(__VALID_OPENCL
++  #     "${OpenCV_BINARY_DIR}"
++  #     "${OpenCV_SOURCE_DIR}/cmake/checks/opencl.cpp"
++  #     CMAKE_FLAGS "-DINCLUDE_DIRECTORIES:STRING=${OPENCL_INCLUDE_DIR}"
++  #     OUTPUT_VARIABLE TRY_OUT
++  #     )
++  #   if(NOT TRY_OUT MATCHES "OpenCL is valid")
++  #     message(WARNING "Can't use OpenCL")
++  #     return()
++  #   endif()
++  # endif()
+ 
+   set(HAVE_OPENCL 1)
+ 
+-  if(HAVE_OPENCL_STATIC)
++  # if(HAVE_OPENCL_STATIC)
+     set(OPENCL_LIBRARIES "${OPENCL_LIBRARY}")
+-  else()
+-    unset(OPENCL_LIBRARIES)
+-  endif()
++  # else()
++  #   unset(OPENCL_LIBRARIES)
++  # endif()
+ 
+   set(OPENCL_INCLUDE_DIRS ${OPENCL_INCLUDE_DIR})
+ 
