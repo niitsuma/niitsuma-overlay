@@ -71,12 +71,11 @@ DEPEND="${RDEPEND}
 "
 
 PATCHES=(
-	#"${FILESDIR}/${PN}-2.3.1a-libav-0.7.patch"
-	#"${FILESDIR}/${PN}-2.4.3-gcc47.patch"
-	#"${FILESDIR}/${PN}-2.4.2-cflags.patch"
-	#"${FILESDIR}/${PN}-2.4.8-javamagic.patch"
+	"${FILESDIR}/${PN}-2.3.1a-libav-0.7.patch"
+	"${FILESDIR}/${PN}-2.4.3-gcc47.patch"
+	"${FILESDIR}/${PN}-2.4.2-cflags.patch"
+	"${FILESDIR}/${PN}-2.4.8-javamagic.patch"
 	#"${FILESDIR}/${PN}-2.4.9-cuda.patch"
-	#"${FILESDIR}/${PN}-2.4.9-delectopencl.patch"
 	"${FILESDIR}/${PN}-2.4.9-detectopencl.patch"
 )
 
@@ -150,7 +149,7 @@ src_configure() {
 		$(cmake-utils_use_with xine)
 	# the build components
 		-DBUILD_SHARED_LIBS=ON
-		-DBUILD_ANDROID_EXAMPLES=OFF
+		-DBUILD_ANDROID_EXAMPLpES=OFF
 		$(cmake-utils_use_build doc DOCS)
 		$(cmake-utils_use_build examples)
 		-DBUILD_PERF_TESTS=OFF
@@ -226,6 +225,14 @@ src_configure() {
 	mycmakeargs+=(
 		"-DCUDA_NPP_LIBRARY_ROOT_DIR=/opt/cuda"
 	)
+
+	if use opencl; then
+	   mycmakeargs+=(
+	   "-DINCLUDE_DIRECTORIES=/opt/AMDAPP/include"
+	   "-DLINK_DIRECTORIES=/opt/AMDAPP/lib/x86_64"
+	   #" /opt/clAmdFft/lib64/"
+	   )
+	fi
 
 	mycmakeargs+=(
 
