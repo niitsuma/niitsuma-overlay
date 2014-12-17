@@ -44,7 +44,7 @@ RDEPEND="
 	jpeg? ( virtual/jpeg )
 	jpeg2k? ( media-libs/jasper )
 	ieee1394? (
-		media-libs/libdc1394
+		media-libs/libdc1394p
 		sys-libs/libraw1394
 	)
 	ipp? ( sci-libs/ipp )
@@ -75,8 +75,9 @@ PATCHES=(
 	#"${FILESDIR}/${PN}-2.4.3-gcc47.patch"
 	#"${FILESDIR}/${PN}-2.4.2-cflags.patch"
 	#"${FILESDIR}/${PN}-2.4.8-javamagic.patch"
-	# "${FILESDIR}/${PN}-2.4.9-cuda.patch"
+	#"${FILESDIR}/${PN}-2.4.9-cuda.patch"
 	#"${FILESDIR}/${PN}-2.4.9-delectopencl.patch"
+	"${FILESDIR}/${PN}-2.4.9-detectopencl.patch"
 )
 
 pkg_setup() {
@@ -230,6 +231,7 @@ src_configure() {
 
 		#"-DOPENCL_INCLUDE_DIR=/opt/AMDAPP/include/CL"
 		"-DOPENCL_INCLUDE_DIR=/opt/AMDAPP/include"
+		"-DCLAMDAPP_INCLUDE_DIR=/opt/AMDAPP/include"
 		#"-DOPENCL_INCLUDE_DIR=/usr/lib/OpenCL/global/include/CL"
 		#"-DOPENCL_INCLUDE_DIR=/usr/lib/OpenCL/global/include"
 
@@ -244,10 +246,15 @@ src_configure() {
 		"-DOpenCL_ROOT_DIR=/opt/AMDAPP"
 		#"-DOpenCL_ROOT_DIR=/usr/lib/OpenCL"	
 
-		"-DCLAMDBLAS_INCLUDE_DIR=/opt/clAmdBlas-1.10.321/include"
-		"-DCLAMDBLAS_ROOT_DIR=/opt/clAmdBlas-1.10.321"
-		"-DCLAMDFFT_INCLUDE_DIR=/opt/clAmdFft-1.10.321/include"
-		"-DCLAMDFFT_ROOT_DIR=/opt/clAmdFft-1.10.321"
+		# "-DCLAMDBLAS_INCLUDE_DIR=/opt/clAmdBlas-1.10.321/include"
+		# "-DCLAMDBLAS_ROOT_DIR=/opt/clAmdBlas-1.10.321"
+		# "-DCLAMDFFT_INCLUDE_DIR=/opt/clAmdFft-1.10.321/include"
+		# "-DCLAMDFFT_ROOT_DIR=/opt/clAmdFft-1.10.321"
+
+		"-DCLAMDBLAS_INCLUDE_DIR=/opt/clAmdBlas/include"
+		"-DCLAMDBLAS_ROOT_DIR=/opt/clAmdBlas"
+		"-DCLAMDFFT_INCLUDE_DIR=/opt/clAmdFft/include"
+		"-DCLAMDFFT_ROOT_DIR=/opt/clAmdFft"
 		
 		#"-DCMAKE_INCLUDE_DIRECTORIES_BEFORE=ON"
 		#"-DINCLUDE_DIRECTORIES=/opt/AMDAPP/include"

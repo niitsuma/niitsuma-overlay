@@ -1,6 +1,14 @@
 --- opencv-2.4.9.orig/cmake/OpenCVDetectOpenCL.cmake	2014-04-11 19:15:26.000000000 +0900
 +++ opencv-2.4.9/cmake/OpenCVDetectOpenCL.cmake	2014-09-18 13:21:49.278921103 +0900
-@@ -11,26 +11,26 @@
+@@ -6,32 +6,34 @@
+   set(HAVE_OPENCL_STATIC ON)
++  set(OPENCL_INCLUDE_DIRS ${OPENCL_INCLUDE_DIR})
+ else(APPLE)
+   set(OPENCL_FOUND YES)
+   set(HAVE_OPENCL_STATIC OFF)
++  set(OPENCL_INCLUDE_DIRS ${OPENCL_INCLUDE_DIR})
+   set(OPENCL_INCLUDE_DIR "${OpenCV_SOURCE_DIR}/3rdparty/include/opencl/1.2")
++  list(APPEND OPENCL_INCLUDE_DIRS "${OPENCL_INCLUDE_DIR}")
  endif(APPLE)
  
  if(OPENCL_FOUND)
@@ -41,5 +49,6 @@
 +  #   unset(OPENCL_LIBRARIES)
 +  # endif()
  
-   set(OPENCL_INCLUDE_DIRS ${OPENCL_INCLUDE_DIR})
- 
+-  set(OPENCL_INCLUDE_DIRS ${OPENCL_INCLUDE_DIR})
+  
+   if(WITH_OPENCLAMDFFT)

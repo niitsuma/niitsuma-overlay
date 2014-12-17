@@ -76,7 +76,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2.4.2-cflags.patch"
 	"${FILESDIR}/${PN}-2.4.8-javamagic.patch"
 	"${FILESDIR}/${PN}-2.4.9-cuda.patch"
-	"${FILESDIR}/${PN}-2.4.9-delectopencl.patch"
+	"${FILESDIR}/${PN}-2.4.9-detectopencl.patch"
 )
 
 pkg_setup() {
@@ -230,6 +230,7 @@ src_configure() {
 
 		#"-DOPENCL_INCLUDE_DIR=/opt/AMDAPP/include/CL"
 		"-DOPENCL_INCLUDE_DIR=/opt/AMDAPP/include"
+		"-DCLAMDAPP_INCLUDE_DIR=/opt/AMDAPP/include"
 		#"-DOPENCL_INCLUDE_DIR=/usr/lib/OpenCL/global/include/CL"
 		#"-DOPENCL_INCLUDE_DIR=/usr/lib/OpenCL/global/include"
 
