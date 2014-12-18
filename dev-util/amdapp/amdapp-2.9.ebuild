@@ -72,9 +72,27 @@ src_install() {
 	cp -R "${S}/"* "${ED}/opt/AMDAPP" || die "Install failed!"
 
 	dodir "${AMD_CL}"
-	dosym "/opt/AMDAPP/lib/`arch`/libOpenCL.so"   "${AMD_CL}"
-	dosym "/opt/AMDAPP/lib/`arch`/libOpenCL.so.1" "${AMD_CL}"
+	#dosym "/opt/AMDAPP/lib/`arch`/libOpenCL.so"   "${AMD_CL}"
+	dosym "/opt/AMDAPP/lib/`arch`/libOpenCL.so.1" "${AMD_CL}"/libOpenCL.so.1.2
+
+	### may need?
+	#dosym "/opt/AMDAPP/lib/`arch`/libamdocl64.so" "${AMD_CL}"
+
+	#dosym "/opt/AMDAPP/lib/`arch`/libOpenCL.so"   usr/$(get_libdir)/
+	dosym "/opt/AMDAPP/lib/`arch`/libOpenCL.so.1" usr/$(get_libdir)/libOpenCL.so.1.2
+	#dosym "/opt/AMDAPP/lib/`arch`/libamdocl64.so" usr/$(get_libdir)/
+
+
 
 	insinto /etc/OpenCL/vendors/
 	doins ../etc/OpenCL/vendors/*
+
+	#dodir /etc/OpenCL/vendors/
+	#echo "/opt/AMDAPP/lib/x86_64/libamdocl64.so" > "${ED}/etc/OpenCL/vendors/amdocl64.icd"
+
+
+	dodir /etc/ld.so.conf.d/
+	echo "/opt/AMDAPP/lib/x86_64" > "${ED}/etc/ld.so.conf.d/amdapp_x86_64.conf"
+	echo "/opt/AMDAPP/lib/x86" >  "${ED}/etc/ld.so.conf.d/amdapp_x86.conf"
+
 }

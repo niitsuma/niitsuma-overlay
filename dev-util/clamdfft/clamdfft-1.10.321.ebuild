@@ -76,4 +76,9 @@ src_install() {
 
 	#insinto /etc/OpenCL/vendors/
 	#doins ../etc/OpenCL/vendors/*
+
+	dodir /etc/ld.so.conf.d/
+	echo  "/opt/clAmdFft/lib64" > "${ED}/etc/ld.so.conf.d/clAmdFft_x86_64.conf"
+
 }
+

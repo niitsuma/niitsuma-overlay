@@ -48,8 +48,13 @@ RDEPEND="
 		sys-libs/libraw1394
 	)
 	ipp? ( sci-libs/ipp )
-	opencl? ( virtual/opencl )
-	openexr? ( media-libs/openexr )
+	opencl? ( 
+	        virtual/opencl
+		dev-util/amdapp
+		dev-util/clamdblas
+		dev-util/clamdfft
+        )
+	openexr? ( media-libs/openexr )	
 	opengl? ( virtual/opengl virtual/glu )
 	png? ( media-libs/libpng:0= )
 	python? ( ${PYTHON_DEPS} dev-python/numpy[${PYTHON_USEDEP}] )
@@ -71,11 +76,11 @@ DEPEND="${RDEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.3.1a-libav-0.7.patch"
-	"${FILESDIR}/${PN}-2.4.3-gcc47.patch"
-	"${FILESDIR}/${PN}-2.4.2-cflags.patch"
-	"${FILESDIR}/${PN}-2.4.8-javamagic.patch"
-	#"${FILESDIR}/${PN}-2.4.9-cuda.patch"
+	#"${FILESDIR}/${PN}-2.3.1a-libav-0.7.patch"
+	#"${FILESDIR}/${PN}-2.4.3-gcc47.patch"
+	#"${FILESDIR}/${PN}-2.4.2-cflags.patch"
+	#"${FILESDIR}/${PN}-2.4.8-javamagic.patch"
+	##"${FILESDIR}/${PN}-2.4.9-cuda.patch"
 	"${FILESDIR}/${PN}-2.4.9-detectopencl.patch"
 )
 
@@ -232,7 +237,7 @@ src_configure() {
 	   "-DLINK_DIRECTORIES=/opt/AMDAPP/lib/x86_64"
 	   #" /opt/clAmdFft/lib64/"
 	   )
-	fi
+
 
 	mycmakeargs+=(
 
@@ -268,7 +273,7 @@ src_configure() {
 		#"-DCMAKE_INCLUDE_DIRECTORIES=/opt/AMDAPP/include"
 
 	)
-
+	fi
 
 
 

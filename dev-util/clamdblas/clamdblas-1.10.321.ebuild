@@ -76,4 +76,10 @@ src_install() {
 
 	#insinto /etc/OpenCL/vendors/
 	#doins ../etc/OpenCL/vendors/*
+
+
+	dodir /etc/ld.so.conf.d/
+	echo  "/opt/clAmdBlas/lib64" > "${ED}/etc/ld.so.conf.d/clAmdBlas_x86_64.conf"
+
+
 }

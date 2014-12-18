@@ -48,7 +48,12 @@ RDEPEND="
 		sys-libs/libraw1394
 	)
 	ipp? ( sci-libs/ipp )
-	opencl? ( virtual/opencl )
+	opencl? ( 
+	        virtual/opencl
+		dev-util/amdapp
+		dev-util/clamdblas
+		dev-util/clamdfft
+        )
 	openexr? ( media-libs/openexr )
 	opengl? ( virtual/opengl virtual/glu )
 	png? ( media-libs/libpng:0= )
@@ -226,6 +231,15 @@ src_configure() {
 		"-DCUDA_NPP_LIBRARY_ROOT_DIR=/opt/cuda"
 	)
 
+	if use opencl; then
+	   mycmakeargs+=(
+	   "-DINCLUDE_DIRECTORIES=/opt/AMDAPP/include"
+	   "-DLINK_DIRECTORIES=/opt/AMDAPP/lib/x86_64"
+	   #" /opt/clAmdFft/lib64/"
+	   )
+
+
+
 	mycmakeargs+=(
 
 		#"-DOPENCL_INCLUDE_DIR=/opt/AMDAPP/include/CL"
@@ -245,10 +259,16 @@ src_configure() {
 		"-DOpenCL_ROOT_DIR=/opt/AMDAPP"
 		#"-DOpenCL_ROOT_DIR=/usr/lib/OpenCL"	
 
-		"-DCLAMDBLAS_INCLUDE_DIR=/opt/clAmdBlas-1.10.321/include"
-		"-DCLAMDBLAS_ROOT_DIR=/opt/clAmdBlas-1.10.321"
-		"-DCLAMDFFT_INCLUDE_DIR=/opt/clAmdFft-1.10.321/include"
-		"-DCLAMDFFT_ROOT_DIR=/opt/clAmdFft-1.10.321"
+		# "-DCLAMDBLAS_INCLUDE_DIR=/opt/clAmdBlas-1.10.321/include"
+		# "-DCLAMDBLAS_ROOT_DIR=/opt/clAmdBlas-1.10.321"
+		# "-DCLAMDFFT_INCLUDE_DIR=/opt/clAmdFft-1.10.321/include"
+		# "-DCLAMDFFT_ROOT_DIR=/opt/clAmdFft-1.10.321"
+
+		"-DCLAMDBLAS_INCLUDE_DIR=/opt/clAmdBlas/include"
+		"-DCLAMDBLAS_ROOT_DIR=/opt/clAmdBlas"
+		"-DCLAMDFFT_INCLUDE_DIR=/opt/clAmdFft/include"
+		"-DCLAMDFFT_ROOT_DIR=/opt/clAmdFft"
+
 		
 		#"-DCMAKE_INCLUDE_DIRECTORIES_BEFORE=ON"
 		#"-DINCLUDE_DIRECTORIES=/opt/AMDAPP/include"
@@ -256,7 +276,7 @@ src_configure() {
 
 	)
 
-
+	fi
 
 
 	# workaround for bug 413429
