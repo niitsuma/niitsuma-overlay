@@ -26,10 +26,11 @@ SRC_URI="
 LICENSE="AMD"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="examples"
+# IUSE="examples"
 
+#	dev-util/amdapp
 RDEPEND="
-	dev-util/amdapp
+
 	"
 DEPEND="
 	${RDEPEND}

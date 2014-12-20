@@ -240,7 +240,7 @@ src_configure() {
 
 
 
-	mycmakeargs+=(
+	   mycmakeargs+=(
 
 		#"-DOPENCL_INCLUDE_DIR=/opt/AMDAPP/include/CL"
 		"-DOPENCL_INCLUDE_DIR=/opt/AMDAPP/include"
@@ -274,7 +274,7 @@ src_configure() {
 		#"-DINCLUDE_DIRECTORIES=/opt/AMDAPP/include"
 		#"-DCMAKE_INCLUDE_DIRECTORIES=/opt/AMDAPP/include"
 
-	)
+	    )
 
 	fi
 
