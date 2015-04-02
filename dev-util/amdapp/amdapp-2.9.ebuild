@@ -26,16 +26,22 @@ KEYWORDS="~x86 ~amd64"
 IUSE="examples"
 
 RDEPEND="
-	app-admin/eselect-opengl
+
 	!<dev-util/amdstream-2.6
 	sys-devel/llvm
 	sys-devel/gcc
-	media-libs/mesa
-	media-libs/freeglut
-	|| ( dev-util/opencl-headers dev-util/nvidia-cuda-toolkit
-		>=x11-drivers/ati-drivers-11.12[opencl] )
-	examples? ( media-libs/glew )
-	app-admin/eselect-opencl"
+	"	
+
+#	app-admin/eselect-opengl
+#	media-libs/mesa
+#	media-libs/freeglut
+#	app-admin/eselect-opencl
+
+#	|| ( dev-util/opencl-headers dev-util/nvidia-cuda-toolkit
+#		>=x11-drivers/ati-drivers-11.12[opencl] )
+#	examples? ( media-libs/glew )
+
+
 DEPEND="
 	${RDEPEND}
 	dev-lang/perl

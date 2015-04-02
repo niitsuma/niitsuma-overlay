@@ -3,13 +3,15 @@
 <pkgmetadata>
   <herd>cluster</herd>
   <longdescription>
-	AMD Accelerated Parallel Processing (APP) is an SDK which includes
-	the Bolt libraries and an OpenCL implementation for AMD's CPUs and GPUs.
+Clamp : An open source C++ compiler for heterogeneous devices
+About Clamp
+
+This repository hosts Clamp, a C++ compiler implementation project. The goal is to implement a compiler that takes a program conforming C++AMP 1.2 standard and transforms it into HSAIL, SPIR binary, or OpenCL-C.
   </longdescription>
   <maintainer>
-    <email>gentryx@gmx.de</email>
+    <email>hirotaka.niitsuma@gmail.com </email>
   </maintainer>
   <use>
-	<flag name='examples'>Build the OpenCL example programs</flag>
+	<flag name='examples'>Build the OpenCL example </flag>
   </use>
 </pkgmetadata>

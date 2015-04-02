@@ -9,7 +9,9 @@ inherit multilib
 DESCRIPTION="Clamp : An open source C++ compiler for heterogeneous devices"
 HOMEPAGE="https://bitbucket.org/multicoreware/cppamp-driver-ng/wiki/Home"
 
-SRC_URI="https://bitbucket.org/multicoreware/cppamp-driver-ng/downloads/clamp-0.2.0-milestone5-135-g2580-Linux.tar.gz"
+#SRC_URI="https://bitbucket.org/multicoreware/cppamp-driver-ng/downloads/clamp-0.2.0-milestone5-135-g2580-Linux.tar.gz"
+SRC_URI="https://bitbucket.org/multicoreware/cppamp-driver-ng/downloads/${P}-hsa-milestone4-Linux.tar.gz "
+
 
 #X86_AT="AMD-APP-SDK-v${PV}-lnx32.tgz"
 #AMD64_AT="AMD-APP-SDK-v${PV}-lnx64.tgz"
@@ -18,8 +20,8 @@ SRC_URI="https://bitbucket.org/multicoreware/cppamp-driver-ng/downloads/clamp-0.
 
 #MY_P="AMD-APP-SDK-v2.9-RC-lnx64"
 
-MY_P="clamp-0.2.0-milestone5-135-g2580-Linux"
-
+#MY_P="clamp-0.2.0-milestone5-135-g2580-Linux"
+MY_P="${P}-hsa-milestone4-Linux"
 
 
 # SRC_URI="
@@ -34,9 +36,8 @@ KEYWORDS="~x86 ~amd64"
 #IUSE="examples"
 
 RDEPEND="
-	dev-util/amdapp
+	dev-util/libcxxamp	
 	"
-
 DEPEND="
 	${RDEPEND}
 	"
@@ -69,14 +70,9 @@ S="${WORKDIR}/${MY_P}"
 #}
 
 src_install() {
-	#dodir /opt/AMDAPP
-	#dodir /opt/clAmdFft
-	#dodir /opt/clamp
+
 	dodir /
 
-	#cp -R "${S}/"* "${ED}/opt/AMDAPP" || die "Install failed!"
-	#cp -R "${S}/"* "${ED}/opt/clAmdFft" || die "Install failed!"
-	#cp -R "${S}/"* "${ED}/opt/clamp" || die "Install failed!"
 	cp -R "${S}/"* "${ED}/" || die "Install failed!"
 
 	#dodir "${AMD_CL}"
