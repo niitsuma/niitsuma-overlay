@@ -81,7 +81,7 @@ src_configure() {
 		      -DCXXAMP_ENABLE_BOLT=OFF
 		      #-DCMAKE_INSTALL_PREFIX=/opt/clamp
 		)
-		
+		MAKEOPTS+=" -j1"
 		cmake-utils_src_configure
 		
 }
