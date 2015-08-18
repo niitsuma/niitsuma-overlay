@@ -1,0 +1,10 @@
+[Unit]
+Description=The wwwoffle proxy server
+After=network.target
+
+[Service]
+ExecStart=/usr/sbin/wwwoffled -d -c /etc/wwwoffle/wwwoffle.conf
+ExecReload=/usr/bin/wwwoffle -config -c /etc/wwwoffle/wwwoffle.conf
+
+[Install]
+WantedBy=multi-user.target

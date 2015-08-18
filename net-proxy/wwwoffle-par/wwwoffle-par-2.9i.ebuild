@@ -5,7 +5,7 @@
 EAPI=5
 #EAPI=4
 #inherit eutils user
-inherit autotools eutils multilib git-2 user
+inherit autotools eutils multilib git-2 user systemd
 
 DESCRIPTION="Web caching proxy suitable for non-permanent Internet connections"
 #HOMEPAGE="http://www.gedanken.org.uk/software/wwwoffle/"
@@ -85,6 +85,8 @@ src_install() {
 	# robots.txt modification - /var/spool/wwwoffle/html/en
 	# 		- remove Disallow: /index
 	sed -i -e "s|Disallow:.*/index|#Disallow: /index|" "${D}/var/spool/wwwoffle/html/en/robots.txt"
+	#systemd_dounit "${FILESDIR}/${PN}.service"
+	systemd_dounit "${FILESDIR}/wwwoffle.service"
 }
 
 pkg_preinst() {
