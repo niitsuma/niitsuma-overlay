@@ -1,12 +1,16 @@
 [Unit]
 Description=The wwwoffle proxy server
 After=network.target
+
+[Service]
+Type=forking
 User=wwwoffle
 Group=wwwoffle
 
-[Service]
 ExecStart=/usr/sbin/wwwoffled -d -c /etc/wwwoffle/wwwoffle.conf
 ExecReload=/usr/bin/wwwoffle -config -c /etc/wwwoffle/wwwoffle.conf
+WorkingDirectory=/var/spool/wwwoffle
+RootDirectory=/var/spool/wwwoffle
 
 [Install]
 WantedBy=multi-user.target
