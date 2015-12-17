@@ -20,7 +20,7 @@ SLOT="0"
 LICENSE="GPL-2"
 #IUSE="gnutls ipv6 zlib"
 #IUSE="gnutls -ipv6 zlib"
-IUSE="gnutls zlib"
+IUSE=" -gnutls zlib"
 
 RDEPEND="gnutls? ( net-libs/gnutls )
 	zlib? ( sys-libs/zlib )"
