@@ -17,17 +17,13 @@ IUSE="msmtp"
 
 DEPEND="virtual/tex-base
 		virtual/latex-base
-		app-text/texlive[dvi2tty,extra,graphics,png,pstricks,science,truetype,xml,X,luatex,xetex,humanities,omega,publishers]
-
+		app-text/texlive[dvi2tty,extra,graphics,png,pstricks,science,truetype,xml,X,luatex,xetex,humanities,omega,publishers,linguas_fr]
 		app-text/poppler
 		media-libs/netpbm
 		app-text/dblatex
 		app-text/docbook-xml-simple-dtd
 		app-text/docbook-xsl-stylesheets
 		media-libs/opencv"
-
-
-
 
 RDEPEND="${DEPEND}
 		dev-lang/perl
