@@ -1,6 +1,0 @@
-#!/bin/bash
-
-libpath=$( java-config -i lpsolve )
-classpath=$( java-config -p thebeast,javacup,jline,lpsolve )
-
-java -cp ${classpath} -Djava.library.path=${libpath} -Dhome=${PWD} -Xmx1500m thebeast.pml.TheBeast $@

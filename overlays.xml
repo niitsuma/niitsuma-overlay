@@ -9,6 +9,7 @@
       <email>hirotaka.niitsuma@gmail.com</email>
       <name>Hirotaka NIITSUMA</name>
     </owner>
-    <source type="git">git://github.com/niitsuma/niitsuma-overlay.git</source>
+    <!-- GitHub disabled the unauthenticated git:// protocol in 2021. -->
+    <source type="git">https://github.com/niitsuma/niitsuma-overlay.git</source>
   </repo>
 </repositories>
