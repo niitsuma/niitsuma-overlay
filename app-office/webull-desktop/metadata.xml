@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>hirotaka.niitsuma@gmail.com</email>
+		<name>Hirotaka NIITSUMA</name>
+	</maintainer>
+	<longdescription lang="en">
+		Webull Desktop is the trading terminal of Webull Securities.
+		Upstream ships a Debian .deb only; this ebuild repacks it for
+		Gentoo. Two things need fixing for a non-Debian system: the
+		binaries carry a hardcoded RUNPATH of /usr/local/WebullDesktop
+		(rewritten to /opt with patchelf), and they link against
+		libcurl-gnutls.so.4, a Debian-specific SONAME (bridged to
+		Gentoo's libcurl.so.4 with a symlink inside the install dir).
+	</longdescription>
+</pkgmetadata>

@@ -63,6 +63,7 @@ emerge -q =<category>/<package>-<version>
 | `dev-util/viennacl` | OpenCL/CUDA linear algebra headers | EAPI 6 (1.7.1) |
 | `net-proxy/wwwoffle-par` | Offline web proxy, own fork | EAPI 5 |
 | `sci-mathematics/scipoptsuite` | SCIP mixed-integer optimisation suite | EAPI 6, 6.0.2 (upstream is on 9.x) |
+| `app-office/webull-desktop` | Webull Securities trading terminal | Repacks upstream's Debian `.deb`. EAPI 8 |
 
 ### Fixed copies of `::gentoo` ebuilds
 
