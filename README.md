@@ -58,7 +58,6 @@ emerge -q =<category>/<package>-<version>
 | --- | --- | --- |
 | `app-text/afterthedeadline` | English grammar/style checker server | EAPI 6 |
 | `app-text/cabocha` | Japanese dependency structure analyser | EAPI 5 — needs a bump |
-| `app-text/redpen` | Japanese/English proofreading tool | EAPI 6 |
 | `app-text/sentencepiece` | Unsupervised subword tokeniser (live upstream) | EAPI 5 — needs a bump |
 | `dev-util/rtags` | C/C++ indexer with an Emacs frontend | EAPI 6, `-9999` only |
 | `dev-util/viennacl` | OpenCL/CUDA linear algebra headers | EAPI 6 (1.7.1) |
