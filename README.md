@@ -56,7 +56,6 @@ emerge -q =<category>/<package>-<version>
 
 | Package | What it is | Note |
 | --- | --- | --- |
-| `app-text/afterthedeadline` | English grammar/style checker server | EAPI 6 |
 | `app-office/webull-desktop` | Webull Securities trading terminal | Repacks upstream's Debian `.deb`. EAPI 8 |
 | `net-misc/futu-opend` | moomoo/Futu OpenAPI gateway daemon | Upstream ships Ubuntu/CentOS tarballs only. RUNPATH starts with `$ORIGIN` so it relocates cleanly |
 | `dev-python/moomoo-api` | Python SDK for the above | Not in `::gentoo`; system Python is PEP 668 managed so pip is not an option |
