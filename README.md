@@ -64,6 +64,9 @@ emerge -q =<category>/<package>-<version>
 | `net-proxy/wwwoffle-par` | Offline web proxy, own fork | EAPI 5 |
 | `sci-mathematics/scipoptsuite` | SCIP mixed-integer optimisation suite | EAPI 6, 6.0.2 (upstream is on 9.x) |
 | `app-office/webull-desktop` | Webull Securities trading terminal | Repacks upstream's Debian `.deb`. EAPI 8 |
+| `net-misc/futu-opend` | moomoo/Futu OpenAPI gateway daemon | Upstream ships Ubuntu/CentOS tarballs only. RUNPATH starts with `$ORIGIN` so it relocates cleanly |
+| `dev-python/moomoo-api` | Python SDK for the above | Not in `::gentoo`; system Python is PEP 668 managed so pip is not an option |
+| `net-print/ipp-usb` | Exposes a USB IPP printer/MFP as a local IPP+eSCL service | Needed for driverless printing **and** ADF scanning over USB. See `private/machines.md` |
 
 ### Fixed copies of `::gentoo` ebuilds
 

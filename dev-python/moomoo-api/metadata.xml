@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>hirotaka.niitsuma@gmail.com</email>
+		<name>Hirotaka NIITSUMA</name>
+	</maintainer>
+	<longdescription lang="en">
+		Python SDK for the moomoo (Futu) OpenAPI. It talks to a locally
+		running OpenD gateway (net-misc/futu-opend), which in turn relays
+		to moomoo servers.
+	</longdescription>
+</pkgmetadata>

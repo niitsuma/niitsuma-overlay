@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>hirotaka.niitsuma@gmail.com</email>
+		<name>Hirotaka NIITSUMA</name>
+	</maintainer>
+	<longdescription lang="en">
+		OpenD is the gateway daemon of the moomoo (Futu) OpenAPI. It is not
+		the trading GUI: it relays protocol requests between a local SDK
+		(moomoo-api for Python, Java, C#, C++, JavaScript) and moomoo's
+		servers. The SDK connects to it on localhost:11111.
+
+		Upstream ships Ubuntu 18.04 and CentOS 7 builds. The bundled shared
+		libraries are found through a RUNPATH beginning with $ORIGIN, so the
+		tree is relocatable and needs no patchelf treatment.
+	</longdescription>
+	<use>
+		<flag name="cli">Install the command-line OpenD (the one used for API access)</flag>
+		<flag name="gui">Install the Qt GUI variant as well</flag>
+	</use>
+</pkgmetadata>
