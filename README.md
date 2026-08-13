@@ -57,12 +57,6 @@ emerge -q =<category>/<package>-<version>
 | Package | What it is | Note |
 | --- | --- | --- |
 | `app-text/afterthedeadline` | English grammar/style checker server | EAPI 6 |
-| `app-text/cabocha` | Japanese dependency structure analyser | EAPI 5 — needs a bump |
-| `app-text/sentencepiece` | Unsupervised subword tokeniser (live upstream) | EAPI 5 — needs a bump |
-| `dev-util/rtags` | C/C++ indexer with an Emacs frontend | EAPI 6, `-9999` only |
-| `dev-util/viennacl` | OpenCL/CUDA linear algebra headers | EAPI 6 (1.7.1) |
-| `net-proxy/wwwoffle-par` | Offline web proxy, own fork | EAPI 5 |
-| `sci-mathematics/scipoptsuite` | SCIP mixed-integer optimisation suite | EAPI 6, 6.0.2 (upstream is on 9.x) |
 | `app-office/webull-desktop` | Webull Securities trading terminal | Repacks upstream's Debian `.deb`. EAPI 8 |
 | `net-misc/futu-opend` | moomoo/Futu OpenAPI gateway daemon | Upstream ships Ubuntu/CentOS tarballs only. RUNPATH starts with `$ORIGIN` so it relocates cleanly |
 | `dev-python/moomoo-api` | Python SDK for the above | Not in `::gentoo`; system Python is PEP 668 managed so pip is not an option |
@@ -86,7 +80,12 @@ emerge -q =<category>/<package>-<version>
 This overlay began as a fork of
 [kiyoya-overlay](https://github.com/kiyoya/kiyoya-overlay).
 
-In August 2026 it was cut down from 50 packages to the list above. Removed were:
+In August 2026 it was cut down from 50 packages to the list above. A second
+pass on 2026-08-13 removed six more that current Portage cannot even read:
+they `inherit` eclasses that no longer exist (`cmake-utils`, `git-2`, `eutils`,
+`base`) or declare EAPI 5. Checked by running `ebuild ... clean` on every
+package rather than by eye. None were installed; `sentencepiece` is now in
+`::gentoo` as `sci-ml/sentencepiece`. Removed were:
 altcoin wallets and GPU miners from the 2017–2019 era; packages that `::gentoo`
 has since absorbed (`auto-multiple-choice`, `cutlass`, `petsc`, `wwwoffle`,
 `ufconfig`, and `scipy` which moved to `dev-python/`); and ebuilds written for
