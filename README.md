@@ -59,6 +59,7 @@ emerge -q =<category>/<package>-<version>
 | `app-office/webull-desktop` | Webull Securities trading terminal | Repacks upstream's Debian `.deb`. EAPI 8 |
 | `net-misc/futu-opend` | moomoo/Futu OpenAPI gateway daemon | Upstream ships Ubuntu/CentOS tarballs only. RUNPATH starts with `$ORIGIN` so it relocates cleanly |
 | `dev-python/moomoo-api` | Python SDK for the above | Not in `::gentoo`; system Python is PEP 668 managed so pip is not an option |
+| `dev-python/ccxt` | Unified crypto-exchange API (upstream, not the `myccxt` fork) | Not in `::gentoo`. Upstream pins every dep with `==`; the ebuild depends on system versions instead |
 | `net-print/ipp-usb` | Exposes a USB IPP printer/MFP as a local IPP+eSCL service | Needed for driverless printing **and** ADF scanning over USB. See `private/machines.md` |
 
 ### Fixed copies of `::gentoo` ebuilds
