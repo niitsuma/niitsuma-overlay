@@ -2,6 +2,7 @@
 
 EAPI=8
 
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..14} )
 
@@ -34,6 +35,16 @@ BDEPEND="
 DOCS=()
 
 distutils_enable_tests pytest
+
+python_compile() {
+	# 0.8.x の setup.py は、TA_INCLUDE_PATH / TA_LIBRARY_PATH が無いと TA-Lib C を
+	# GitHub から落として静的リンクしようとする (サンドボックスでは失敗する)。
+	# 両方を渡してシステムの sci-libs/ta-lib (libta-lib.so) にリンクさせる。
+	# ヘッダは "ta-lib/ta_defs.h" の形で読むので include は /usr/include を渡す。
+	local -x TA_INCLUDE_PATH="${ESYSROOT}/usr/include"
+	local -x TA_LIBRARY_PATH="${ESYSROOT}/usr/$(get_libdir)"
+	distutils-r1_python_compile
+}
 
 python_test() {
 	# tests/ はインストール済みの talib を import する。ビルドツリー内から
