@@ -64,11 +64,17 @@ src_install() {
 	# 見つかるようにランタイムヘッダは /usr/include にも置く。
 	doheader scm2cpp*.hpp
 
+	# このスナップショットの翻訳器は、-t が無いと型定義ファイル scm2c.typ を
+	# カレントディレクトリから読む。インストール先のものを既定として渡す。
+	# -t は後に書いたものが優先されるので、利用者が付けた -t がそのまま効く。
+	# (上流は -t 無しでも scm2cpp-file.scm の隣の scm2c.typ を読むように
+	# 直してある。それを含むスナップショットに上げたら、この -t は外してよい。)
 	newbin - scm2cpp <<-EOT
 	#!/bin/sh
 	# racket scm2cpp-file.scm と同じ。オプションは docs/translator.md を参照。
 	PLTCOLLECTS="${EPREFIX}/usr/share/${PN}/vendor:\${PLTCOLLECTS}" \\
-		exec racket "${EPREFIX}/usr/share/${PN}/scm2cpp-file.scm" "\$@"
+		exec racket "${EPREFIX}/usr/share/${PN}/scm2cpp-file.scm" \\
+		-t "${EPREFIX}/usr/share/${PN}/scm2c.typ" "\$@"
 	EOT
 
 	dodoc README.md README.ja.md CHANGES.ja.md FILES.md
