@@ -4,7 +4,7 @@ EAPI=8
 
 # 上流にはリリースが無い (CITATION.cff の version が 0.9.0 のまま) ので、
 # master のコミットを固定したスナップショットとして入れる。
-COMMIT="d5a9726cf3befcbd8fc5eec3fec9ca51cfe6805b"
+COMMIT="3b56f3fa983d8c0e7c95bcc9fdd3e66c029a3ef6"
 
 DESCRIPTION="Scheme to readable C++ translator (BLAS/cuBLAS/CUDA aware)"
 HOMEPAGE="https://github.com/niitsuma/scm2cpp"
@@ -64,17 +64,13 @@ src_install() {
 	# 見つかるようにランタイムヘッダは /usr/include にも置く。
 	doheader scm2cpp*.hpp
 
-	# このスナップショットの翻訳器は、-t が無いと型定義ファイル scm2c.typ を
-	# カレントディレクトリから読む。インストール先のものを既定として渡す。
-	# -t は後に書いたものが優先されるので、利用者が付けた -t がそのまま効く。
-	# (上流は -t 無しでも scm2cpp-file.scm の隣の scm2c.typ を読むように
-	# 直してある。それを含むスナップショットに上げたら、この -t は外してよい。)
+	# -t が無ければ、翻訳器はカレントディレクトリの scm2c.typ を、それも
+	# 無ければ scm2cpp-file.scm の隣 (ここでは /usr/share/${PN}) のものを読む。
 	newbin - scm2cpp <<-EOT
 	#!/bin/sh
 	# racket scm2cpp-file.scm と同じ。オプションは docs/translator.md を参照。
 	PLTCOLLECTS="${EPREFIX}/usr/share/${PN}/vendor:\${PLTCOLLECTS}" \\
-		exec racket "${EPREFIX}/usr/share/${PN}/scm2cpp-file.scm" \\
-		-t "${EPREFIX}/usr/share/${PN}/scm2c.typ" "\$@"
+		exec racket "${EPREFIX}/usr/share/${PN}/scm2cpp-file.scm" "\$@"
 	EOT
 
 	dodoc README.md README.ja.md CHANGES.ja.md FILES.md
